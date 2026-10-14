@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umroh Gemilang Darunnaja</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--h5:#15803d;--h6:#166534;--h7:#14532d;--h8:#0f3d22;--e4:#e0b94a;--e5:#c9a227;--e6:#a8841c;
+--bg:#f7faf8;--tx:#0f172a;--mt:#6b7280;--bd:#e5e7eb;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0;}
+html,body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5;}
+img{display:block;max-width:100%;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;font-size:inherit;}
+.app{max-width:640px;margin:0 auto;min-height:100vh;padding-bottom:80px;}
+header{position:sticky;top:0;z-index:40;background:linear-gradient(90deg,var(--h7),var(--h6));color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.hi{display:flex;align-items:center;gap:12px;padding:12px 16px;}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--e5);color:var(--h8);display:flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 2px 6px rgba(0,0,0,.15);}
+.brand h1{font-size:14px;font-weight:700;line-height:1.1;}
+.brand p{font-size:11px;color:var(--e4);font-weight:600;}
+.lb{margin-left:auto;background:rgba(255,255,255,.15);color:#fff;font-size:12px;padding:6px 12px;border-radius:999px;font-weight:500;}
+.lb:active{background:rgba(255,255,255,.25);}
+main{padding:16px;}
+.card{background:#fff;border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.05);border:1px solid #f1f3f4;}
+.banner{background:linear-gradient(135deg,var(--h7),var(--h6) 60%,var(--h5));color:#fff;padding:20px;border-radius:18px;position:relative;overflow:hidden;box-shadow:0 6px 20px rgba(20,83,45,.25);}
+.banner::before{content:'';position:absolute;right:-30px;top:-30px;width:130px;height:130px;border-radius:50%;background:rgba(201,162,39,.22);}
+.banner small{color:var(--e4);font-weight:600;font-size:12px;}
+.banner h2{margin:6px 0 4px;font-size:20px;line-height:1.25;position:relative;z-index:1;}
+.banner p{margin:0 0 14px;font-size:13px;opacity:.85;position:relative;z-index:1;}
+.btn{display:inline-block;padding:10px 16px;border-radius:12px;font-weight:700;font-size:13px;text-align:center;transition:.15s;border:none;cursor:pointer;}
+.bp{background:var(--h6);color:#fff;}
+.bp:active{background:var(--h7);}
+.bg{background:var(--e5);color:var(--h8);}
+.bg:active{background:var(--e6);}
+.bo{background:transparent;border:2px solid var(--h6);color:var(--h7);}
+.bo:active{background:#f0f9f4;}
+.bb{display:block;width:100%;}
+.bs{padding:7px 12px;font-size:12px;}
+.sh{display:flex;align-items:center;justify-content:space-between;margin:20px 0 12px;}
+.sh h3{margin:0;font-size:15px;color:var(--h7);font-weight:800;}
+.sh a{font-size:12px;color:var(--h6);font-weight:700;}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+.quick a{display:flex;align-items:center;gap:12px;padding:14px;}
+.quick .ic{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:20px;}
+.quick .ic.h{background:#f0f9f4;color:var(--h6);}
+.quick .ic.e{background:rgba(201,162,39,.12);color:var(--e6);}
+.quick b{display:block;font-size:13px;}
+.quick span{font-size:11px;color:var(--mt);}
+.pkg{margin-bottom:12px;overflow:hidden;}
+.pkg .th{width:100%;height:160px;object-fit:cover;background:linear-gradient(135deg,var(--h6),var(--h8));}
+.pkg .body{padding:14px;}
+.pkg h4{margin:0 0 4px;font-size:15px;}
+.pkg .meta{display:flex;gap:12px;font-size:12px;color:var(--mt);flex-wrap:wrap;}
+.pkg .price{margin:8px 0 12px;font-size:16px;font-weight:800;color:var(--h7);}
+.pkg .act{display:flex;gap:8px;}
+.pkg .act .btn{flex:1;padding:9px 12px;font-size:12px;}
+.item{padding:14px;margin-bottom:10px;border-radius:14px;}
+.item h4{margin:0 0 2px;font-size:14px;}
+.item p{margin:0;font-size:12px;color:var(--mt);}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+.info{padding:10px;border-radius:12px;background:#fff;border:1px solid #f1f3f4;}
+.info .lbl{font-size:10px;color:var(--mt);margin-bottom:2px;text-transform:uppercase;font-weight:600;}
+.info .val{font-weight:600;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+nav.bn{position:fixed;bottom:0;left:0;right:0;z-index:40;background:#fff;border-top:1px solid var(--bd);box-shadow:0 -4px 12px rgba(0,0,0,.05);}
+.ng{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);}
+.ng a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 10px;font-size:10px;color:#9ca3af;font-weight:600;}
+.ng a.on{color:var(--h6);}
+.ng svg{width:22px;height:22px;}
+.ng a.on::after{content:'';width:22px;height:3px;background:var(--e5);border-radius:2px;margin-top:2px;}
+label{display:block;font-size:12px;font-weight:600;color:#4b5563;margin-bottom:4px;}
+input,select,textarea{width:100%;padding:11px 12px;border-radius:12px;border:1px solid var(--bd);background:#fff;font-family:inherit;font-size:14px;color:var(--tx);outline:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--h5);}
+textarea{resize:vertical;min-height:60px;}
+.field{margin-bottom:12px;}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ph{font-size:17px;font-weight:800;color:var(--h7);margin:0 0 4px;}
+.ps{font-size:12px;color:var(--mt);margin:0 0 14px;}
+.mb{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px;}
+.mb img,.mb video{max-width:100%;max-height:80vh;border-radius:14px;}
+.ctr{text-align:center;}
+.mt{color:var(--mt);font-size:13px;}
+.sp{padding:32px 0;text-align:center;color:var(--mt);font-size:13px;}
+.bd{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10px;font-weight:700;}
+.bd.g{background:rgba(201,162,39,.15);color:var(--e6);}
+.bd.h{background:#f0f9f4;color:var(--h7);}
+.bd.r{background:#fee2e2;color:#b91c1c;}
+.empty{padding:32px 16px;text-align:center;color:var(--mt);font-size:13px;}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.stat{padding:14px;border-radius:14px;background:#fff;border:1px solid #f1f3f4;}
+.stat .num{font-size:22px;font-weight:800;color:var(--h7);}
+.stat .lbl{font-size:11px;color:var(--mt);margin-top:2px;}
+.tst{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:10px 16px;border-radius:999px;font-size:12px;z-index:200;box-shadow:0 6px 20px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:.2s;}
+.tst.on{opacity:1;}
+.amg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.amg a{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px;background:#fff;border:1px solid #f1f3f4;border-radius:14px;font-size:12px;font-weight:600;color:var(--h7);}
+.amg a:active{background:#f0f9f4;}
+.amg svg{width:24px;height:24px;color:var(--h6);}
+.tb{display:flex;gap:8px;margin-bottom:12px;align-items:center;}
+.tb input{flex:1;}
+.fc{padding:16px;margin-bottom:12px;}
+.db{background:#fee2e2;color:#b91c1c;padding:6px 10px;border-radius:8px;font-size:11px;font-weight:700;}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div class="hi">
+<div class="logo">UG</div>
+<div class="brand"><h1>Umroh Gemilang</h1><p>Darunnaja</p></div>
+<button class="lb" id="btnLoginTop" onclick="location.hash='#/login'">Login</button>
+</div>
+</header>
+<main id="root"></main>
+</div>
+<nav class="bn">
+<div class="ng" id="nav">
+<a href="#/" data-r="#/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Beranda</span></a>
+<a href="#/paket" data-r="#/paket"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg><span>Paket</span></a>
+<a href="#/jadwal" data-r="#/jadwal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span>Jadwal</span></a>
+<a href="#/galeri" data-r="#/galeri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span>Galeri</span></a>
+<a href="#/bantuan" data-r="#/bantuan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>Bantuan</span></a>
+</div>
+</nav>
+<div class="tst" id="tst"></div>
+<div id="modal"></div><script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+/* ============ KONFIGURASI ============
+   Kosongkan = mode DEMO (langsung jalan)
+   Isi = pakai Supabase (data online)
+*/
+const SUPABASE_URL='';
+const SUPABASE_ANON='';
+const DEMO=!SUPABASE_URL||!SUPABASE_ANON;
+const sb=DEMO?null:createClient(SUPABASE_URL,SUPABASE_ANON);
+
+/* ============ DATA DEMO ============ */
+const D={
+ settings:{bureau_name:'Umroh Gemilang Darunnaja',whatsapp_1:'6281234567890',whatsapp_2:'6281234567891',whatsapp_3:'6281234567892',office_address:'Jl. Kauman No. 12, Yogyakarta',email:'info@umrohgemilang.id',bank_account:'BSI 7211 8899 00 a.n. Umroh Gemilang',profile_text:'Umroh Gemilang Darunnaja adalah biro perjalanan Umroh dan Haji yang amanah, profesional, dan berpengalaman sejak 2010.'},
+ packages:[
+ {id:'p1',name:'Umroh Reguler 9 Hari',image_url:'',price:32500000,duration_days:9,departure_date:'2026-01-15',airline:'Saudia Airlines',hotel_makkah:'Hotel Ajyad Makkah',hotel_madinah:'Hotel Anwar Al Madinah',quota:45,is_active:true,facilities:['Tiket pesawat PP','Hotel bintang 4','3x makan sehari','Bus AC','Muthawif & tour leader','Perlengkapan umroh','Visa umroh','Asuransi'],requirements:['KTP','Paspor min. 8 bulan','Buku vaksin meningitis','Foto 4x6 background putih','Kartu keluarga']},
+ {id:'p2',name:'Umroh Plus Turki 12 Hari',image_url:'',price:45500000,duration_days:12,departure_date:'2026-02-20',airline:'Turkish Airlines',hotel_makkah:'Swissôtel Makkah',hotel_madinah:'Pullman Zamzam',quota:30,is_active:true,facilities:['Tiket pesawat PP','Hotel bintang 5','3x makan','City tour Istanbul','Bus AC','Muthawif','Perlengkapan umroh'],requirements:['KTP','Paspor min. 8 bulan','Vaksin meningitis','Foto 4x6']},
+ {id:'p3',name:'Umroh Ramadhan 10 Hari',image_url:'',price:42000000,duration_days:10,departure_date:'2026-03-05',airline:'Garuda Indonesia',hotel_makkah:'Fairmont Makkah',hotel_madinah:'Dar Al Taqwa',quota:40,is_active:true,facilities:['Tiket pesawat PP','Hotel bintang 5','Sahur & iftar','Bus AC','Muthawif'],requirements:['KTP','Paspor min. 8 bulan','Vaksin meningitis','Foto 4x6']}],
+ departures:[
+ {id:'d1',package_id:'p1',packages:{name:'Umroh Reguler 9 Hari'},departure_date:'2026-01-15',departure_time:'08:00:00',meeting_point:'Bandara Soekarno-Hatta T3',airline:'Saudia Airlines',quota:45,remaining_quota:38,return_info:'24 Januari 2026'},
+ {id:'d2',package_id:'p2',packages:{name:'Umroh Plus Turki 12 Hari'},departure_date:'2026-02-20',departure_time:'22:30:00',meeting_point:'Bandara Soekarno-Hatta T3',airline:'Turkish Airlines',quota:30,remaining_quota:22,return_info:'3 Maret 2026'},
+ {id:'d3',package_id:'p3',packages:{name:'Umroh Ramadhan 10 Hari'},departure_date:'2026-03-05',departure_time:'14:00:00',meeting_point:'Bandara Soekarno-Hatta T3',airline:'Garuda Indonesia',quota:40,remaining_quota:35,return_info:'15 Maret 2026'}],
+ announcements:[
+ {id:'a1',title:'Manasik Umroh Batch Januari 2026',content:'Manasik akan dilaksanakan pada 10 Januari 2026 di Kantor Pusat pukul 08.00 WIB. Wajib dihadiri seluruh calon jamaah.',published_at:'2025-12-01T10:00:00Z'},
+ {id:'a2',title:'Persiapan Dokumen Keberangkatan',content:'Segera lengkapi paspor, buku vaksin meningitis, dan foto terbaru sebelum 20 Desember 2025.',published_at:'2025-12-05T10:00:00Z'},
+ {id:'a3',title:'Info Pembayaran Pelunasan',content:'Pelunasan biaya paket dilakukan paling lambat 30 hari sebelum keberangkatan. Transfer ke rekening resmi biro.',published_at:'2025-12-08T10:00:00Z'}],
+ galleries:[
+ {id:'g1',type:'photo',title:'Keberangkatan Januari',media_url:'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600'},
+ {id:'g2',type:'photo',title:'Masjidil Haram',media_url:'https://images.unsplash.com/photo-1537444532052-2afbf769b76b?w=600'},
+ {id:'g3',type:'photo',title:'Masjid Nabawi',media_url:'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600'},
+ {id:'g4',type:'photo',title:'Jamaah di Madinah',media_url:'https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600'},
+ {id:'g5',type:'photo',title:'Manasik Bersama',media_url:'https://images.unsplash.com/photo-1585036156171-384164a8c675?w=600'},
+ {id:'g6',type:'photo',title:'City Tour Madinah',media_url:'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=600'}],
+ registrations:[],
+ profiles:[]
+};
+
+/* ============ STATE ============ */
+let ST=null,user=null,adm=null;
+
+/* ============ HELPERS ============ */
+const rp=n=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n||0);
+const tg=s=>s?new Date(s).toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}):'-';
+const ts=s=>s?new Date(s).toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric'}):'-';
+const es=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const wa=(n,m)=>`https://wa.me/${(n||'').replace(/\D/g,'')}?text=${encodeURIComponent(m||'')}`;
+function toast(m){const t=document.getElementById('tst');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2000);}
+
+/* ============ DATA LAYER ============ */
+async function sel(t,f){
+ if(DEMO){let a=JSON.parse(JSON.stringify(D[t]||[]));
+  if(f?.eq)for(const[k,v]of Object.entries(f.eq))a=a.filter(r=>r[k]===v);
+  if(f?.gte)for(const[k,v]of Object.entries(f.gte))a=a.filter(r=>r[k]>=v);
+  if(f?.order)a.sort((x,y)=>(x[f.order.c]>y[f.order.c]?1:-1)*(f.order.a===false?-1:1));
+  if(f?.limit)a=a.slice(0,f.limit);return a;}
+ let q=sb.from(t).select('*');
+ if(f?.eq)for(const[k,v]of Object.entries(f.eq))q=q.eq(k,v);
+ if(f?.gte)for(const[k,v]of Object.entries(f.gte))q=q.gte(k,v);
+ if(f?.order)q=q.order(f.order.c,{ascending:f.order.a!==false});
+ if(f?.limit)q=q.limit(f.limit);
+ const{data}=await q;return data||[];
+}
+async function ins(t,r){
+ if(DEMO){const n={...r,id:r.id||('x'+Date.now()),created_at:new Date().toISOString()};D[t]=D[t]||[];D[t].push(n);return{data:n,error:null};}
+ return sb.from(t).insert(r).select().single();
+}
+async function upd(t,m,p){
+ if(DEMO){const a=D[t]||[];const x=a.find(r=>Object.entries(m).every(([k,v])=>r[k]===v));if(x)Object.assign(x,p);return{data:x,error:null};}
+ let q=sb.from(t).update(p);
+ for(const[k,v]of Object.entries(m))q=q.eq(k,v);
+ return q.select().single();
+}
+async function del(t,m){
+ if(DEMO){D[t]=(D[t]||[]).filter(r=>!Object.entries(m).every(([k,v])=>r[k]===v));return{error:null};}
+ let q=sb.from(t).delete();
+ for(const[k,v]of Object.entries(m))q=q.eq(k,v);
+ return q;
+}
+async function loadST(){
+ if(ST)return ST;
+ if(DEMO){ST=D.settings;return ST;}
+ const{data}=await sb.from('bureau_settings').select('*').eq('id',1).maybeSingle();
+ ST=data||D.settings;return ST;
+}
+async function loadUser(){
+ if(DEMO){user=JSON.parse(localStorage.getItem('du')||'null');adm=localStorage.getItem('da')==='1'?{email:'admin@demo'}:null;return;}
+ const{data}=await sb.auth.getUser();user=data?.user||null;adm=null;
+ if(user){const{data:p}=await sb.from('profiles').select('role').eq('id',user.id).maybeSingle();if(p?.role==='admin')adm=user;}
+}
+
+/* ============ ROUTER ============ */
+const R={'#/':pBeranda,'#/paket':pPaket,'#/daftar':pDaftar,'#/jadwal':pJadwal,'#/galeri':pGaleri,'#/pengumuman':pPengumuman,'#/profil':pProfilBiro,'#/bantuan':pBantuan,'#/login':pLogin,'#/profil-jamaah':pProfilJamaah,'#/admin':pAdminLogin,'#/admin/dash':pAdminDash,'#/admin/paket':pAdminPaket,'#/admin/pendaftaran':pAdminPendaftaran,'#/admin/jadwal':pAdminJadwal,'#/admin/galeri':pAdminGaleri,'#/admin/pengumuman':pAdminPengumuman,'#/admin/pengaturan':pAdminPengaturan};
+
+async function route(){
+ const h=location.hash||'#/';
+ await loadUser();await loadST();
+ const b=document.getElementById('btnLoginTop');
+ if(user||adm){b.textContent=adm?'Admin':'Profil';b.onclick=()=>location.hash=adm?'#/admin/dash':'#/profil-jamaah';}
+ else{b.textContent='Login';b.onclick=()=>location.hash='#/login';}
+ if(h.startsWith('#/paket/')){await pDetailPaket(h.split('/')[2]);mk(h);window.scrollTo(0,0);return;}
+ const fn=R[h]||pBeranda;await fn();mk(h);window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',route);
+function mk(h){document.querySelectorAll('.ng a').forEach(a=>a.classList.toggle('on',a.dataset.r===h));}
+function sc(html){document.getElementById('root').innerHTML=html;}
+
+/* ============ PAGE: BERANDA ============ */
+async function pBeranda(){
+ const s=ST;
+ const pk=await sel('packages',{eq:{is_active:true},order:{c:'created_at',a:false},limit:3});
+ const an=await sel('announcements',{order:{c:'published_at',a:false},limit:2});
+ const dp=await sel('departures',{gte:{departure_date:new Date().toISOString().slice(0,10)},order:{c:'departure_date',a:true},limit:1});
+ const nx=dp[0];
+ sc(`
+ <div class="banner"><small>Assalamualaikum 👋</small><h2>Wujudkan Umroh Impian Bersama Kami</h2><p>Bimbingan penuh dari keberangkatan hingga kembali ke tanah air.</p><a href="#/daftar" class="btn bg">Daftar Sekarang</a></div>
+ <div class="quick">
+ <a class="card" href="${wa(s.whatsapp_1,'Assalamualaikum, saya ingin konsultasi paket Umroh.')}" target="_blank"><div class="ic h">💬</div><div><b>Konsultasi</b><span>Via WhatsApp</span></div></a>
+ <a class="card" href="#/daftar"><div class="ic e">📝</div><div><b>Daftar</b><span>Isi formulir</span></div></a>
+ </div>
+ ${nx?`<div class="card" style="padding:14px;margin-top:16px"><div style="font-size:11px;color:var(--h6);font-weight:700;margin-bottom:4px">📅 KEBERANGKATAN TERDEKAT</div><b style="font-size:14px">${es(nx.packages?.name||'Paket')}</b><p style="margin:4px 0 0;font-size:12px;color:var(--mt)">${tg(nx.departure_date)}${nx.departure_time?' • '+nx.departure_time.slice(0,5)+' WIB':''}</p>${nx.meeting_point?`<p style="margin:2px 0 0;font-size:12px;color:var(--mt)">📍 ${es(nx.meeting_point)}</p>`:''}</div>`:''}
+ <div class="sh"><h3>Paket Umroh</h3><a href="#/paket">Lihat semua →</a></div>
+ ${pk.length?pk.map(pkCard).join(''):'<div class="empty">Belum ada paket tersedia.</div>'}
+ <div class="sh"><h3>Pengumuman</h3><a href="#/pengumuman">Semua →</a></div>
+ ${an.length?an.map(a=>`<div class="card" style="padding:14px;margin-bottom:10px"><b style="font-size:14px">${es(a.title)}</b><p style="margin:4px 0 0;font-size:12px;color:var(--mt)">${es(a.content.slice(0,120))}${a.content.length>120?'...':''}</p><p style="margin:6px 0 0;font-size:11px;color:#9ca3af">${tg(a.published_at)}</p></div>`).join(''):'<div class="empty">Belum ada pengumuman.</div>'}`);
+}
+
+/* ============ KARTU PAKET ============ */
+function pkCard(p){
+ return `<div class="card pkg">${p.image_url?`<img class="th" src="${es(p.image_url)}" alt="${es(p.name)}">`:`<div class="th"></div>`}
+ <div class="body"><h4>${es(p.name)}</h4><div class="meta"><span>⏱ ${p.duration_days} hari</span>${p.departure_date?`<span>📅 ${ts(p.departure_date)}</span>`:''}</div><div class="price">${rp(p.price)}</div>
+ <div class="act"><a href="#/paket/${p.id}" class="btn bo">Detail</a><a href="#/daftar?paket=${p.id}" class="btn bp">Daftar</a></div></div></div>`;
+/* ============ PAGE: PAKET ============ */
+async function pPaket(){
+ const pk=await sel('packages',{eq:{is_active:true},order:{c:'created_at',a:false}});
+ sc(`<h2 class="ph">Paket Umroh</h2>
+ <div class="field"><input id="cari" placeholder="🔍 Cari paket..."></div>
+ <div id="pkList">${pk.length?pk.map(pkCard).join(''):'<div class="empty">Belum ada paket.</div>'}</div>`);
+ const inp=document.getElementById('cari');
+ inp?.addEventListener('input',e=>{
+   const q=e.target.value.toLowerCase();
+   const f=pk.filter(p=>p.name.toLowerCase().includes(q));
+   document.getElementById('pkList').innerHTML=f.length?f.map(pkCard).join(''):'<div class="empty">Tidak ditemukan.</div>';
+ });
+}
+
+/* ============ PAGE: DETAIL PAKET ============ */
+async function pDetailPaket(id){
+ const arr=await sel('packages',{eq:{id:id}});
+ const p=arr[0];
+ if(!p){sc('<div class="empty">Paket tidak ditemukan.</div>');return;}
+ const s=ST;
+ sc(`<div style="padding-bottom:100px">
+ ${p.image_url?`<img src="${es(p.image_url)}" style="width:100%;height:220px;object-fit:cover;border-radius:16px" alt="">`:`<div style="width:100%;height:220px;background:linear-gradient(135deg,var(--h6),var(--h8));border-radius:16px"></div>`}
+ <h2 class="ph" style="margin-top:14px">${es(p.name)}</h2>
+ <p style="font-size:22px;font-weight:800;color:var(--e6);margin:4px 0 14px">${rp(p.price)}</p>
+ <div class="ig">
+ <div class="info"><div class="lbl">Durasi</div><div class="val">${p.duration_days} hari</div></div>
+ <div class="info"><div class="lbl">Maskapai</div><div class="val">${es(p.airline||'-')}</div></div>
+ <div class="info"><div class="lbl">Hotel Makkah</div><div class="val">${es(p.hotel_makkah||'-')}</div></div>
+ <div class="info"><div class="lbl">Hotel Madinah</div><div class="val">${es(p.hotel_madinah||'-')}</div></div>
+ <div class="info"><div class="lbl">Kuota</div><div class="val">${p.quota} jamaah</div></div>
+ <div class="info"><div class="lbl">Berangkat</div><div class="val">${ts(p.departure_date)}</div></div>
+ </div>
+ ${p.facilities?.length?`<div class="card" style="padding:14px;margin-top:14px"><h3 style="font-size:14px;color:var(--h7);margin:0 0 8px">✅ Fasilitas</h3><ul style="margin:0;padding-left:16px;font-size:13px">${p.facilities.map(f=>`<li style="margin-bottom:4px">${es(f)}</li>`).join('')}</ul></div>`:''}
+ ${p.requirements?.length?`<div class="card" style="padding:14px;margin-top:14px"><h3 style="font-size:14px;color:var(--h7);margin:0 0 8px">📋 Persyaratan</h3><ul style="margin:0;padding-left:16px;font-size:13px">${p.requirements.map(r=>`<li style="margin-bottom:4px">${es(r)}</li>`).join('')}</ul></div>`:''}
+ </div>
+ <div style="position:fixed;bottom:64px;left:0;right:0;background:#fff;border-top:1px solid var(--bd);padding:10px 16px;display:flex;gap:8px;max-width:640px;margin:0 auto">
+ <a href="${wa(s.whatsapp_2||s.whatsapp_1,'Assalamualaikum, saya ingin tanya paket '+p.name)}" target="_blank" class="btn bo" style="flex:1">💬 Tanya</a>
+ <a href="#/daftar?paket=${p.id}" class="btn bp" style="flex:1">Daftar Sekarang</a>
+ </div>`);
+}
+
+/* ============ PAGE: PENDAFTARAN ============ */
+async function pDaftar(){
+ const hash=location.hash;
+ const pid=hash.includes('?')?new URLSearchParams(hash.split('?')[1]).get('paket'):'';
+ const pk=await sel('packages',{eq:{is_active:true}});
+ sc(`<h2 class="ph">Pendaftaran Umroh</h2>
+ <p class="ps">Isi data dengan benar. Data Anda dilindungi.</p>
+ <form id="fDaftar">
+ <div class="field"><label>Nama Lengkap *</label><input name="full_name" required></div>
+ <div class="field"><label>Nomor WhatsApp *</label><input name="whatsapp" required placeholder="08xxxxxxxxxx"></div>
+ <div class="field"><label>Email</label><input name="email" type="email"></div>
+ <div class="r2">
+ <div class="field"><label>Tempat Lahir</label><input name="birth_place"></div>
+ <div class="field"><label>Tanggal Lahir</label><input name="birth_date" type="date"></div>
+ </div>
+ <div class="field"><label>Alamat</label><textarea name="address" rows="2"></textarea></div>
+ <div class="field"><label>No. Identitas (KTP/Paspor)</label><input name="identity_number"></div>
+ <div class="field"><label>Paket Umroh *</label><select name="package_id" required><option value="">— Pilih paket —</option>${pk.map(p=>`<option value="${p.id}" ${p.id===pid?'selected':''}>${es(p.name)}</option>`).join('')}</select></div>
+ <div class="field"><label>Jumlah Peserta</label><input name="participants" type="number" min="1" value="1"></div>
+ <div class="field"><label>Catatan Tambahan</label><textarea name="notes" rows="2"></textarea></div>
+ <button type="submit" class="btn bp bb" id="fBtn">Kirim Pendaftaran</button>
+ </form>`);
+ document.getElementById('fDaftar').addEventListener('submit',async e=>{
+   e.preventDefault();
+   const btn=document.getElementById('fBtn');btn.textContent='Mengirim...';btn.disabled=true;
+   const fd=new FormData(e.target);const row=Object.fromEntries(fd);
+   row.participants=Number(row.participants)||1;
+   if(user) row.user_id=user.id;
+   const{data,error}=await ins('registrations',row);
+   if(error){alert('Gagal: '+error.message);btn.textContent='Kirim Pendaftaran';btn.disabled=false;return;}
+   sc(`<div class="card" style="padding:24px;text-align:center">
+   <div style="font-size:56px">✅</div>
+   <h2 class="ph" style="margin-top:8px">Pendaftaran Diterima</h2>
+   <p class="ps">Terima kasih, <b>${es(row.full_name)}</b>. Pendaftaran Anda telah kami terima.</p>
+   <div class="card" style="padding:14px;margin-top:14px;text-align:left">
+   <p style="font-size:11px;color:var(--mt);margin:0">Nomor Referensi</p>
+   <p style="font-family:monospace;font-weight:700;color:var(--h7);font-size:11px;word-break:break-all;margin:2px 0 10px">${data?.id||'-'}</p>
+   <p style="font-size:11px;color:var(--mt);margin:0">Status</p>
+   <p style="font-weight:600;color:var(--e6);margin:2px 0 0">Pendaftaran diterima</p>
+   </div>
+   <a href="#/" class="btn bp bb" style="margin-top:16px">Kembali ke Beranda</a>
+   </div>`);
+ });
+}
+
+/* ============ PAGE: JADWAL ============ */
+async function pJadwal(){
+ const l=await sel('departures',{order:{c:'departure_date',a:true}});
+ sc(`<h2 class="ph">Jadwal Keberangkatan</h2>
+ ${l.length?l.map(d=>`<div class="card" style="padding:14px;margin-bottom:10px">
+ <b style="font-size:14px">${es(d.packages?.name||'Paket')}</b>
+ <p style="margin:6px 0 0;font-size:12px;color:var(--mt)">📅 ${tg(d.departure_date)}${d.departure_time?' • '+d.departure_time.slice(0,5)+' WIB':''}</p>
+ ${d.meeting_point?`<p style="margin:2px 0 0;font-size:12px;color:var(--mt)">📍 ${es(d.meeting_point)}</p>`:''}
+ ${d.airline?`<p style="margin:2px 0 0;font-size:12px;color:var(--mt)">✈️ ${es(d.airline)}</p>`:''}
+ <p style="margin:2px 0 0;font-size:12px;color:var(--mt)">👥 Sisa kuota: ${d.remaining_quota??d.quota} dari ${d.quota}</p>
+ ${d.return_info?`<p style="margin:2px 0 0;font-size:12px;color:var(--mt)">🔄 Kepulangan: ${es(d.return_info)}</p>`:''}
+ </div>`).join(''):'<div class="empty">Belum ada jadwal.</div>'}`);
+}
+
+/* ============ PAGE: GALERI ============ */
+async function pGaleri(){
+ const l=await sel('galleries',{order:{c:'created_at',a:false}});
+ sc(`<h2 class="ph">Galeri</h2>
+ ${l.length?`<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">${l.map(g=>`<div class="card" onclick="window.__pv('${g.id}')" style="cursor:pointer;overflow:hidden"><img src="${es(g.media_url)}" style="width:100%;height:120px;object-fit:cover" alt=""><p style="padding:8px;font-size:12px;font-weight:600;margin:0">${es(g.title||'')}</p></div>`).join('')}</div>`:'<div class="empty">Belum ada dokumentasi.</div>'}`);
+ window.__gal=l;
+}
+window.__pv=id=>{
+ const g=window.__gal?.find(x=>x.id===id);if(!g)return;
+ const m=document.getElementById('modal');
+ m.innerHTML=`<div class="mb" onclick="document.getElementById('modal').innerHTML=''"><img src="${es(g.media_url)}" alt=""></div>`;
+};
+
+/* ============ PAGE: PENGUMUMAN ============ */
+async function pPengumuman(){
+ const l=await sel('announcements',{order:{c:'published_at',a:false}});
+ sc(`<h2 class="ph">Informasi & Pengumuman</h2>
+ ${l.length?l.map(a=>`<div class="card" style="padding:14px;margin-bottom:10px">
+ <b style="font-size:14px">📢 ${es(a.title)}</b>
+ <p style="margin:6px 0 0;font-size:13px;color:#4b5563;white-space:pre-wrap">${es(a.content)}</p>
+ <p style="margin:6px 0 0;font-size:11px;color:#9ca3af">${tg(a.published_at)}</p>
+ </div>`).join(''):'<div class="empty">Belum ada pengumuman.</div>'}`);
+}
+
+/* ============ PAGE: PROFIL BIRO ============ */
+async function pProfilBiro(){
+ const s=ST;
+ sc(`<div class="card" style="padding:20px;text-align:center">
+ <div class="logo" style="width:80px;height:80px;margin:0 auto;font-size:22px">UG</div>
+ <h2 class="ph" style="margin-top:12px">${es(s.bureau_name||'Umroh Gemilang Darunnaja')}</h2>
+ <p style="color:var(--e6);font-weight:700;font-size:12px">Biro Perjalanan Umroh & Haji</p>
+ </div>
+ <div class="card" style="padding:14px;margin-top:14px;font-size:14px">
+ ${s.office_address?`<p style="margin:0 0 8px">📍 ${es(s.office_address)}</p>`:''}
+ ${s.email?`<p style="margin:0 0 8px">✉️ ${es(s.email)}</p>`:''}
+ ${s.whatsapp_1?`<p style="margin:0">📱 WhatsApp: ${es(s.whatsapp_1)}</p>`:''}
+ </div>
+ ${s.profile_text?`<div class="card" style="padding:14px;margin-top:14px"><h3 style="font-size:14px;color:var(--h7);margin:0 0 8px">Tentang Kami</h3><p style="font-size:13px;color:#4b5563;white-space:pre-wrap;margin:0">${es(s.profile_text)}</p></div>`:''}
+ ${s.bank_account?`<div class="card" style="padding:14px;margin-top:14px"><h3 style="font-size:14px;color:var(--h7);margin:0 0 8px">💳 Rekening Pembayaran</h3><p style="font-size:13px;color:#4b5563;margin:0">${es(s.bank_account)}</p></div>`:''}`);
+}
+
+/* ============ PAGE: BANTUAN ============ */
+const FAQ=[['Apa syarat utama mendaftar umroh?','KTP, paspor berlaku min. 8 bulan, buku vaksin meningitis, dan foto berwarna.'],['Berapa DP awal pendaftaran?','DP awal umumnya Rp 5.000.000 per jamaah, sisa dibayar sesuai jadwal pelunasan.'],['Berapa lama proses pembuatan paspor?','Sekitar 3–7 hari kerja di kantor imigrasi setempat.'],['Apakah biaya sudah termasuk makan?','Ya, umumnya 3x makan sehari sesuai fasilitas paket yang dipilih.']];
+async function pBantuan(){
+ const s=ST;
+ sc(`<h2 class="ph">Bantuan & Konsultasi</h2>
+ ${s.whatsapp_1?`<a class="card" style="display:flex;align-items:center;gap:12px;padding:14px;margin-bottom:8px" href="${wa(s.whatsapp_1,'Assalamualaikum, saya ingin konsultasi paket Umroh.')}" target="_blank"><span style="font-size:22px">💬</span><div><b style="font-size:13px">Konsultasi Paket</b><p style="margin:0;font-size:11px;color:var(--mt)">${es(s.whatsapp_1)}</p></div></a>`:''}
+ ${s.whatsapp_2?`<a class="card" style="display:flex;align-items:center;gap:12px;padding:14px;margin-bottom:8px" href="${wa(s.whatsapp_2,'Assalamualaikum, saya ingin konsultasi pendaftaran Umroh.')}" target="_blank"><span style="font-size:22px">💬</span><div><b style="font-size:13px">Konsultasi Pendaftaran</b><p style="margin:0;font-size:11px;color:var(--mt)">${es(s.whatsapp_2)}</p></div></a>`:''}
+ ${s.whatsapp_3?`<a class="card" style="display:flex;align-items:center;gap:12px;padding:14px;margin-bottom:8px" href="${wa(s.whatsapp_3,'Assalamualaikum, saya ingin konsultasi pembayaran Umroh.')}" target="_blank"><span style="font-size:22px">💰</span><div><b style="font-size:13px">Konsultasi Pembayaran</b><p style="margin:0;font-size:11px;color:var(--mt)">${es(s.whatsapp_3)}</p></div></a>`:''}
+ <div class="sh"><h3>Pertanyaan Umum</h3></div>
+ ${FAQ.map(([q,a],i)=>`<div class="card" style="margin-bottom:8px"><button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none'" style="width:100%;padding:12px;text-align:left;font-weight:600;font-size:13px">${q}</button><p style="padding:0 12px 12px;font-size:13px;color:#4b5563;display:none;margin:0">${a}</p></div>`).join('')}`);
+}
+
+/* ============ PAGE: LOGIN JAMAAH ============ */
+let loginMode='in';
+async function pLogin(){
+ sc(`<h2 class="ph ctr" id="lTitle">Login Jamaah</h2>
+ <form id="fLogin" style="margin-top:14px">
+ <div class="field" id="nmW" style="display:none"><label>Nama Lengkap</label><input name="name"></div>
+ <div class="field"><label>Email</label><input name="email" type="email" required></div>
+ <div class="field"><label>Password</label><input name="password" type="password" required minlength="6"></div>
+ <button class="btn bp bb" id="lBtn">${loginMode==='in'?'Masuk':'Daftar'}</button>
+ </form>
+ <p class="ctr" style="margin-top:14px;font-size:12px"><a id="tgl" style="color:var(--h6);font-weight:700;cursor:pointer">${loginMode==='in'?'Belum punya akun? Daftar':'Sudah punya akun? Login'}</a></p>
+ <hr style="margin:24px 0;border:none;border-top:1px solid var(--bd)">
+ <p class="ctr" style="font-size:12px;color:var(--mt)">Admin? <a href="#/admin" style="color:var(--e6);font-weight:700">Login Admin →</a></p>`);
+ document.getElementById('nmW').style.display=loginMode==='up'?'block':'none';
+ document.getElementById('tgl').onclick=()=>{loginMode=loginMode==='in'?'up':'in';pLogin();};
+ document.getElementById('fLogin').onsubmit=async e=>{
+  e.preventDefault();
+  const fd=new FormData(e.target);const d=Object.fromEntries(fd);
+  const btn=document.getElementById('lBtn');btn.textContent='Memproses...';btn.disabled=true;
+  if(DEMO){
+   if(loginMode==='up'){toast('Demo: akun dibuat (simulasi)');localStorage.setItem('du',JSON.stringify({email:d.email,id:'u'+Date.now(),demo:true}));}
+   else{localStorage.setItem('du',JSON.stringify({email:d.email,id:'u'+Date.now(),demo:true}));}
+   location.hash='#/profil-jamaah';return;
+  }
+  if(loginMode==='up'){
+   const{error}=await sb.auth.signUp({email:d.email,password:d.password,options:{data:{full_name:d.name}}});
+   if(error){alert(error.message);btn.textContent='Daftar';btn.disabled=false;return;}
+   alert('Berhasil daftar. Silakan login.');loginMode='in';pLogin();
+  }else{
+   const{error}=await sb.auth.signInWithPassword({email:d.email,password:d.password});
+   if(error){alert(error.message);btn.textContent='Masuk';btn.disabled=false;return;}
+   location.hash='#/profil-jamaah';
+  }
+ };
+}
+
+/* ============ PAGE: PROFIL JAMAAH ============ */
+async function pProfilJamaah(){
+ if(!user){location.hash='#/login';return;}
+ const r=await sel('registrations',{eq:{user_id:user.id},order:{c:'created_at',a:false}});
+ sc(`<h2 class="ph">Profil Saya</h2>
+ <div class="card" style="padding:14px">
+ <p style="font-size:11px;color:var(--mt);margin:0">Masuk sebagai</p>
+ <p style="margin:2px 0 12px;font-weight:700;color:var(--h7)">${es(user.email||'')}</p>
+ <button class="btn bo bb" id="lo">Logout</button>
+ </div>
+ <div class="sh"><h3>Riwayat Pendaftaran</h3></div>
+ ${r.length?r.map(x=>`<div class="card" style="padding:14px;margin-bottom:8px">
+ <b style="font-size:13px">${es(x.full_name)}</b>
+ <p style="margin:4px 0 0;font-size:12px;color:var(--mt)">Status: <span class="bd h">${es(x.status||'-')}</span> • Bayar: <span class="bd g">${es(x.payment_status||'-')}</span></p>
+ </div>`).join(''):'<div class="empty">Belum ada pendaftaran.</div>'}`);
+ document.getElementById('lo').onclick=async()=>{
+  if(DEMO){localStorage.removeItem('du');user=null;}
+  else{await sb.auth.signOut();}
+  location.hash='#/';
+ };
+}
+
+/* ============ ADMIN: LOGIN ============ */
+async function pAdminLogin(){
+ sc(`<h2 class="ph ctr">Login Admin</h2><p class="ps ctr">Khusus pengelola biro.</p>
+ <form id="fa" style="margin-top:14px">
+ <div class="field"><label>Email</label><input name="email" type="email" required></div>
+ <div class="field"><label>Password</label><input name="password" type="password" required></div>
+ <button class="btn bg bb">Masuk Dashboard</button>
+ </form>
+ <p class="ctr" style="font-size:11px;color:var(--mt);margin-top:14px">Demo: klik tombol langsung masuk</p>`);
+ document.getElementById('fa').onsubmit=async e=>{
+  e.preventDefault();
+  const fd=new FormData(e.target);const d=Object.fromEntries(fd);
+  if(DEMO){localStorage.setItem('da','1');location.hash='#/admin/dash';return;}
+  const{error}=await sb.auth.signInWithPassword({email:d.email,password:d.password});
+  if(error){alert(error.message);return;}
+  const{data:{user:u}}=await sb.auth.getUser();
+  const{data:p}=await sb.from('profiles').select('role').eq('id',u.id).maybeSingle();
+  if(p?.role!=='admin'){alert('Bukan admin.');await sb.auth.signOut();return;}
+  location.hash='#/admin/dash';
+ };
+}
+
+/* ============ ADMIN: DASHBOARD ============ */
+async function pAdminDash(){
+ if(!adm&&!DEMO){location.hash='#/admin';return;}
+ const[p,r,d,g,a]=await Promise.all([
+  sel('packages',{}),sel('registrations',{}),sel('departures',{}),sel('galleries',{}),sel('announcements',{})
+ ]);
+ sc(`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+ <h2 class="ph" style="margin:0">Dashboard Admin</h2>
+ <button class="btn bo bs" id="alo">Logout</button>
+ </div>
+ <div class="sg">
+ <div class="stat"><div class="num">${r.length}</div><div class="lbl">Total Pendaftar</div></div>
+ <div class="stat"><div class="num">${r.filter(x=>x.status==='terdaftar').length}</div><div class="lbl">Jamaah Terdaftar</div></div>
+ <div class="stat"><div class="num">${p.filter(x=>x.is_active).length}</div><div class="lbl">Paket Aktif</div></div>
+ <div class="stat"><div class="num">${d.length}</div><div class="lbl">Jadwal</div></div>
+ <div class="stat"><div class="num">${g.length}</div><div class="lbl">Foto Galeri</div></div>
+ <div class="stat"><div class="num">${a.length}</div><div class="lbl">Pengumuman</div></div>
+ </div>
+ <div class="sh"><h3>Pendaftaran Terbaru</h3></div>
+ ${r.slice(0,3).map(x=>`<div class="card" style="padding:12px;margin-bottom:8px"><b style="font-size:13px">${es(x.full_name)}</b><p style="margin:2px 0 0;font-size:11px;color:var(--mt)">${es(x.whatsapp)} • <span class="bd h">${es(x.status||'-')}</span></p></div>`).join('')||'<div class="empty">Belum ada pendaftar.</div>'}
+ <div class="sh"><h3>Kelola</h3></div>
+ <div class="amg">
+ <a href="#/admin/paket"><span style="font-size:22px">📦</span>Paket</a>
+ <a href="#/admin/pendaftaran"><span style="font-size:22px">👥</span>Pendaftaran</a>
+ <a href="#/admin/jadwal"><span style="font-size:22px">📅</span>Jadwal</a>
+ <a href="#/admin/galeri"><span style="font-size:22px">🖼️</span>Galeri</a>
+ <a href="#/admin/pengumuman"><span style="font-size:22px">📢</span>Pengumuman</a>
+ <a href="#/admin/pengaturan"><span style="font-size:22px">⚙️</span>Pengaturan</a>
+ </div>`);
+ document.getElementById('alo').onclick=async()=>{
+  if(DEMO){localStorage.removeItem('da');adm=null;}
+  else{await sb.auth.signOut();}
+  location.hash='#/';
+ };
+}
+
+/* ============ ADMIN: KELOLA PAKET ============ */
+async function pAdminPaket(){
+ const l=await sel('packages',{order:{c:'created_at',a:false}});
+ sc(`<h2 class="ph">Kelola Paket</h2>
+ <button class="btn bp bb" id="add" style="margin-bottom:12px">+ Tambah Paket</button>
+ <div id="lp"></div>`);
+ renderList();
+ function renderList(){
+  document.getElementById('lp').innerHTML=l.map(p=>`<div class="card" style="padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px">
+  <div style="flex:1;min-width:0"><b style="font-size:13px">${es(p.name)}</b><p style="margin:2px 0 0;font-size:11px;color:var(--mt)">${rp(p.price)} • ${p.quota} kuota • ${p.is_active?'✅ Aktif':'❌ Nonaktif'}</p></div>
+  <button class="btn bo bs" data-edit="${p.id}">Edit</button>
+  <button class="db" data-del="${p.id}">Hapus</button>
+  </div>`).join('')||'<div class="empty">Belum ada paket.</div>';
+  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>editP(l.find(x=>x.id===b.dataset.edit)));
+  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{
+   if(!confirm('Hapus paket ini?'))return;
+   await del('packages',{id:b.dataset.del});
+   toast('Terhapus');pAdminPaket();
+  });
+ }
+ function editP(p){
+  const isNew=!p;p=p||{};
+  const m=document.getElementById('modal');
+  m.innerHTML=`<div class="mb" style="align-items:flex-end"><div style="background:#fff;border-radius:20px 20px 0 0;padding:16px;width:100%;max-height:85vh;overflow:auto">
+  <h3 style="margin:0 0 12px;color:var(--h7)">${isNew?'Tambah':'Edit'} Paket</h3>
+  <div class="field"><label>Nama Paket</label><input id="i_name" value="${es(p.name||'')}"></div>
+  <div class="r2"><div class="field"><label>Harga</label><input id="i_price" type="number" value="${p.price||0}"></div>
+  <div class="field"><label>Durasi (hari)</label><input id="i_dur" type="number" value="${p.duration_days||9}"></div></div>
+  <div class="r2"><div class="field"><label>Tgl Berangkat</label><input id="i_dep" type="date" value="${p.departure_date||''}"></div>
+  <div class="field"><label>Kuota</label><input id="i_q" type="number" value="${p.quota||45}"></div></div>
+  <div class="field"><label>Maskapai</label><input id="i_air" value="${es(p.airline||'')}"></div>
+  <div class="field"><label>Hotel Makkah</label><input id="i_hm" value="${es(p.hotel_makkah||'')}"></div>
+  <div class="field"><label>Hotel Madinah</label><input id="i_hd" value="${es(p.hotel_madinah||'')}"></div>
+  <div class="field"><label>URL Foto</label><input id="i_img" value="${es(p.image_url||'')}"></div>
+  <div class="field"><label>Aktif</label><select id="i_act"><option value="true" ${p.is_active!==false?'selected':''}>Ya</option><option value="false" ${p.is_active===false?'selected':''}>Tidak</option></select></div>
+  <div style="display:flex;gap:8px;margin-top:8px">
+  <button class="btn bo" style="flex:1" onclick="document.getElementById('modal').innerHTML=''">Batal</button>
+  <button class="btn bp" style="flex:1" id="sv">Simpan</button>
+  </div></div></div>`;
+  document.getElementById('sv').onclick=async()=>{
+   const row={
+    name:document.getElementById('i_name').value,
+    price:Number(document.getElementById('i_price').value)||0,
+    duration_days:Number(document.getElementById('i_dur').value)||9,
+    departure_date:document.getElementById('i_dep').value||null,
+    quota:Number(document.getElementById('i_q').value)||45,
+    airline:document.getElementById('i_air').value,
+    hotel_makkah:document.getElementById('i_hm').value,
+    hotel_madinah:document.getElementById('i_hd').value,
+    image_url:document.getElementById('i_img').value,
+    is_active:document.getElementById('i_act').value==='true'
+   };
+   if(!row.name){alert('Nama wajib diisi');return;}
+   if(isNew) await ins('packages',row);
+   else await upd('packages',{id:p.id},row);
+   document.getElementById('modal').innerHTML='';
+   toast('Tersimpan');pAdminPaket();
+  };
+ }
+ document.getElementById('add').onclick=()=>editP(null);
+}
+
+/* ============ ADMIN: KELOLA PENDAFTARAN ============ */
+async function pAdminPendaftaran(){
+ const l=await sel('registrations',{order:{c:'created_at',a:false}});
+ sc(`<h2 class="ph">Kelola Pendaftaran</h2>
+ ${l.length?l.map(x=>`<div class="card" style="padding:12px;margin-bottom:8px">
+ <b style="font-size:13px">${es(x.full_name)}</b>
+ <p style="margin:2px 0 0;font-size:11px;color:var(--mt)">📱 ${es(x.whatsapp)}${x.email?' • ✉️ '+es(x.email):''}</p>
+ <p style="margin:4px 0 0;font-size:11px"><span class="bd h">${es(x.status||'-')}</span> <span class="bd g">${es(x.payment_status||'-')}</span></p>
+ <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+ <button class="btn bo bs" data-st="${x.id}">Ubah Status</button>
+ <button class="btn bp bs" data-wa="${es(x.whatsapp)}">WhatsApp</button>
+ </div></div>`).join(''):'<div class="empty">Belum ada pendaftar.</div>'}`);
+ document.querySelectorAll('[data-wa]').forEach(b=>b.onclick=()=>window.open(wa(b.dataset.wa,'Assalamualaikum,'),'_blank'));
+ document.querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>{
+  const r=l.find(x=>x.id===b.dataset.st);
+  const m=document.getElementById('modal');
+  m.innerHTML=`<div class="mb" style="align-items:flex-end"><div style="background:#fff;border-radius:20px 20px 0 0;padding:16px;width:100%">
+  <  m.innerHTML=`<div class="mb" style="align-items:flex-end"><div style="background:#fff;border-radius:20px 20px 0 0;padding:16px;width:100%">
+  <h3 style="margin:0 0 12px;color:var(--h7)">Ubah Status</h3>
+  <p style="font-size:12px;margin:0 0 10px;color:var(--mt)"><b>${es(r.full_name)}</b></p>
+  <div class="field"><label>Status Pendaftaran</label><select id="u_st">
+  ${['pendaftaran_diterima','menunggu_verifikasi','perlu_melengkapi_data','terdaftar','dibatalkan'].map(s=>`<option value="${s}" ${r.status===s?'selected':''}>${s.replaceAll('_',' ')}</option>`).join('')}
+  </select></div>
+  <div class="field"><label>Status Pembayaran</label><select id="u_pay">
+  ${['belum_membayar','menunggu_verifikasi_pembayaran','pembayaran_sebagian','lunas'].map(s=>`<option value="${s}" ${r.payment_status===s?'selected':''}>${s.replaceAll('_',' ')}</option>`).join('')}
+  </select></div>
+  <div style="display:flex;gap:8px;margin-top:8px">
+  <button class="btn bo" style="flex:1" onclick="document.getElementById('modal').innerHTML=''">Batal</button>
+  <button class="btn bp" style="flex:1" id="sv2">Simpan</button>
+  </div></div></div>`;
+  document.getElementById('sv2').onclick=async()=>{
+   await upd('registrations',{id:r.id},{
+    status:document.getElementById('u_st').value,
+    payment_status:document.getElementById('u_pay').value,
+    updated_at:new Date().toISOString()
+   });
+   document.getElementById('modal').innerHTML='';
+   toast('Status diperbarui');pAdminPendaftaran();
+  };
+ });
+}
+
+/* ============ ADMIN: KELOLA JADWAL ============ */
+async function pAdminJadwal(){
+ const l=await sel('departures',{order:{c:'departure_date',a:true}});
+ const pk=await sel('packages',{});
+ sc(`<h2 class="ph">Kelola Jadwal</h2>
+ <button class="btn bp bb" id="add" style="margin-bottom:12px">+ Tambah Jadwal</button>
+ <div id="lj"></div>`);
+ render();
+ function render(){
+  document.getElementById('lj').innerHTML=l.map(d=>`<div class="card" style="padding:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:8px">
+  <div style="flex:1;min-width:0"><b style="font-size:13px">${es(d.packages?.name||d.package_id)}</b><p style="margin:2px 0 0;font-size:11px;color:var(--mt)">${tg(d.departure_date)} • ${d.meeting_point||'-'}</p></div>
+  <button class="db" data-del="${d.id}">Hapus</button>
+  </div>`).join('')||'<div class="empty">Belum ada jadwal.</div>';
+  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{
+   if(!confirm('Hapus jadwal ini?'))return;
+   await del('departures',{id:b.dataset.del});toast('Terhapus');pAdminJadwal();
+  });
+ }
+ document.getElementById('add').onclick=()=>{
+  const m=document.getElementById('modal');
+  m.innerHTML=`<div class="mb" style="align-items:flex-end"><div style="background:#fff;border-radius:20px 20px 0 0;padding:16px;width:100%;max-height:85vh;overflow:auto">
+  <h3 style="margin:0 0 12px;color:var(--h7)">Tambah Jadwal</h3>
+  <div class="field"><label>Paket</label><select id="j_pk">${pk.map(p=>`<option value="${p.id}">${es(p.name)}</option>`).join('')}</select></div>
+  <div class="r2"><div class="field"><label>Tanggal</label><input id="j_dt" type="date"></div>
+  <div class="field"><label>Jam</label><input id="j_tm" type="time"></div></div>
+  <div class="field"><label>Titik Kumpul</label><input id="j_mp" value="Bandara Soekarno-Hatta T3"></div>
+  <div class="field"><label>Maskapai</label><input id="j_ar"></div>
+  <div class="r2"><div class="field"><label>Kuota</label><input id="j_q" type="number" value="45"></div>
+  <div class="field"><label>Sisa</label><input id="j_r" type="number" value="45"></div></div>
+  <div class="field"><label>Info Kepulangan</label><input id="j_rt"></div>
+  <div style="display:flex;gap:8px;margin-top:8px">
+  <button class="btn bo" style="flex:1" onclick="document.getElementById('modal').innerHTML=''">Batal</button>
+  <button class="btn bp" style="flex:1" id="svj">Simpan</button>
+  </div></div></div>`;
+  document.getElementById('svj').onclick=async()=>{
+   const row={
+    package_id:document.getElementById('j_pk').value,
+    departure_date:document.getElementById('j_dt').value,
+    departure_time:document.getElementById('j_tm').value||null,
+    meeting_point:document.getElementById('j_mp').value,
+    airline:document.getElementById('j_ar').value,
+    quota:Number(document.getElementById('j_q').value)||45,
+    remaining_quota:Number(document.getElementById('j_r').value)||45,
+    return_info:document.getElementById('j_rt').value
+   };
+   if(!row.departure_date){alert('Tanggal wajib');return;}
+   await ins('departures',row);
+   document.getElementById('modal').innerHTML='';toast('Tersimpan');pAdminJadwal();
+  };
+ };
+}
+
+/* ============ ADMIN: KELOLA GALERI ============ */
+async function pAdminGaleri(){
+ const l=await sel('galleries',{order:{c:'created_at',a:false}});
+ sc(`<h2 class="ph">Kelola Galeri</h2>
+ <button class="btn bp bb" id="add" style="margin-bottom:12px">+ Tambah Foto</button>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+ ${l.map(g=>`<div class="card" style="overflow:hidden"><img src="${es(g.media_url)}" style="width:100%;height:110px;object-fit:cover" alt=""><div style="padding:8px"><p style="margin:0 0 6px;font-size:12px;font-weight:600">${es(g.title||'-')}</p><button class="db" data-del="${g.id}" style="width:100%">Hapus</button></div></div>`).join('')||'<div class="empty" style="grid-column:1/-1">Belum ada foto.</div>'}
+ </div>`);
+ document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{
+  if(!confirm('Hapus foto ini?'))return;
+  await del('galleries',{id:b.dataset.del});toast('Terhapus');pAdminGaleri();
+ });
+ document.getElementById('add').onclick=()=>{
+  const m=document.getElementById('modal');
+  m.innerHTML=`<div class="mb" style="align-items:flex-end"><div style="background:#fff;border-radius:20px 20px 0 0;padding:16px;width:100%">
+  <h3 style="margin:0 0 12px;color:var(--h7)">Tambah Foto</h3>
+  <div class="field"><label>Judul</label><input id="g_t"></div>
+  <div class="field"><label>URL Foto</label><input id="g_u" placeholder="https://..."></div>
+  <div class="field"><label>Keterangan</label><textarea id="g_c" rows="2"></textarea></div>
+  <div style="display:flex;gap:8px;margin-top:8px">
+  <button class="btn bo" style="flex:1" onclick="document.getElementById('modal').innerHTML=''">Batal</button>
+  <button class="btn bp" style="flex:1" id="svg">Simpan</button>
+  </div></div></div>`;
+  document.getElementById('svg').onclick=async()=>{
+   const row={type:'photo',title:document.getElementById('g_t').value,media_url:document.getElementById('g_u').value,caption:document.getElementById('g_c').value};
+   if(!row.media_url){alert('URL wajib');return;}
+   await ins('galleries',row);
+   document.getElementById('modal').innerHTML='';toast('Tersimpan');pAdminGaleri();
+  };
+ };
+}
+
+/* ============ ADMIN: KELOLA PENGUMUMAN ============ */
+async function pAdminPengumuman(){
+ const l=await sel('announcements',{order:{c:'published_at',a:false}});
+ sc(`<h2 class="ph">Kelola Pengumuman</h2>
+ <button class="btn bp bb" id="add" style="margin-bottom:12px">+ Tambah Pengumuman</button>
+ ${l.map(a=>`<div class="card" style="padding:12px;margin-bottom:8px">
+ <b style="font-size:13px">${es(a.title)}</b>
+ <p style="margin:4px 0;font-size:11px;color:var(--mt)">${es((a.content||'').slice(0,100))}...</p>
+ <button class="db" data-del="${a.id}">Hapus</button></div>`).join('')||'<div class="empty">Belum ada pengumuman.</div>'}`);
+ document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{
+  if(!confirm('Hapus pengumuman ini?'))return;
+  await del('announcements',{id:b.dataset.del});toast('Terhapus');pAdminPengumuman();
+ });
+ document.getElementById('add').onclick=()=>{
+  const m=document.getElementById('modal');
+  m.innerHTML=`<div class="mb" style="align-items:flex-end"><div style="background:#fff;border-radius:20px 20px 0 0;padding:16px;width:100%">
+  <h3 style="margin:0 0 12px;color:var(--h7)">Tambah Pengumuman</h3>
+  <div class="field"><label>Judul</label><input id="a_t"></div>
+  <div class="field"><label>Isi</label><textarea id="a_c" rows="4"></textarea></div>
+  <div style="display:flex;gap:8px;margin-top:8px">
+  <button class="btn bo" style="flex:1" onclick="document.getElementById('modal').innerHTML=''">Batal</button>
+  <button class="btn bp" style="flex:1" id="sva">Simpan</button>
+  </div></div></div>`;
+  document.getElementById('sva').onclick=async()=>{
+   const row={title:document.getElementById('a_t').value,content:document.getElementById('a_c').value};
+   if(!row.title||!row.content){alert('Judul & isi wajib');return;}
+   await ins('announcements',row);
+   document.getElementById('modal').innerHTML='';toast('Tersimpan');pAdminPengumuman();
+  };
+ };
+}
+
+/* ============ ADMIN: PENGATURAN ============ */
+async function pAdminPengaturan(){
+ const s=ST;
+ sc(`<h2 class="ph">Pengaturan Biro</h2>
+ <div class="card fc">
+ <div class="field"><label>Nama Biro</label><input id="s_n" value="${es(s.bureau_name||'')}"></div>
+ <div class="field"><label>WhatsApp 1 (Utama)</label><input id="s_w1" value="${es(s.whatsapp_1||'')}"></div>
+ <div class="field"><label>WhatsApp 2 (Pendaftaran)</label><input id="s_w2" value="${es(s.whatsapp_2||'')}"></div>
+ <div class="field"><label>WhatsApp 3 (Pembayaran)</label><input id="s_w3" value="${es(s.whatsapp_3||'')}"></div>
+ <div class="field"><label>Alamat Kantor</label><input id="s_a" value="${es(s.office_address||'')}"></div>
+ <div class="field"><label>Email</label><input id="s_e" value="${es(s.email||'')}"></div>
+ <div class="field"><label>Rekening Pembayaran</label><input id="s_b" value="${es(s.bank_account||'')}"></div>
+ <div class="field"><label>Profil Biro</label><textarea id="s_p" rows="3">${es(s.profile_text||'')}</textarea></div>
+ <button class="btn bp bb" id="save">Simpan Pengaturan</button>
+ </div>`);
+ document.getElementById('save').onclick=async()=>{
+  const row={
+   bureau_name:document.getElementById('s_n').value,
+   whatsapp_1:document.getElementById('s_w1').value,
+   whatsapp_2:document.getElementById('s_w2').value,
+   whatsapp_3:document.getElementById('s_w3').value,
+   office_address:document.getElementById('s_a').value,
+   email:document.getElementById('s_e').value,
+   bank_account:document.getElementById('s_b').value,
+   profile_text:document.getElementById('s_p').value
+  };
+  if(DEMO){Object.assign(D.settings,row);ST=null;}
+  else{await sb.from('bureau_settings').update(row).eq('id',1);ST=null;}
+  toast('Pengaturan disimpan');
+ };
+}
+
+/* ============ START ============ */
+route();
+</script>
+</body>
+</html>
